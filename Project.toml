@@ -1,4 +1,4 @@
-name = "Osfclient"
+name = "OSFclient"
 uuid = "a791464d-1887-4b11-b414-a6c9c5aa4b03"
 authors = ["Benedikt V. Ehinger"]
 version = "1.0.0-DEV"
