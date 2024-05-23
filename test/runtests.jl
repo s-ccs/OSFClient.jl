@@ -1,6 +1,6 @@
 using OSFclient
 using Test
 
-@testset "osfclient.jl" begin
+@testset "OSFclient.jl" begin
     # Write your tests here.
 end

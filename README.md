@@ -1,9 +1,9 @@
 # osfclient
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://behinger.github.io/osfclient.jl/stable/)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://behinger.github.io/osfclient.jl/dev/)
-[![Build Status](https://github.com/behinger/osfclient.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/behinger/osfclient.jl/actions/workflows/CI.yml?query=branch%3Amain)
-[![Coverage](https://codecov.io/gh/behinger/osfclient.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/behinger/osfclient.jl)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://s-ccs.github.io/OSFclient.jl/stable/)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://s-ccs.github.io/OSFclient.jl/dev/)
+[![Build Status](https://github.com/s-ccs/OSFclient.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/s-ccs/OSFclient.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Coverage](https://codecov.io/gh/s-ccs/OSFclient.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/s-ccs/OSFclient.jl)
 
 ## OSF Client 
 A (right now read-only) API-client for the open science framework at OSF.io .

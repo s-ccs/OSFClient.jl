@@ -72,6 +72,6 @@ jobs:
         shell: julia --project=docs --color=yes {0}
         run: |
           using Documenter: DocMeta, doctest
-          using osfclient
-          DocMeta.setdocmeta!(osfclient, :DocTestSetup, :(using osfclient); recursive=true)
-          doctest(osfclient)
+          using OSFclient
+          DocMeta.setdocmeta!(OSFclient, :DocTestSetup, :(using OSFclient); recursive=true)
+          doctest(OSFclient)

@@ -1,7 +1,7 @@
 using OSFclient
 using Documenter
 
-DocMeta.setdocmeta!(osfclient, :DocTestSetup, :(using OSFclient); recursive=true)
+DocMeta.setdocmeta!(OSFclient, :DocTestSetup, :(using OSFclient); recursive=true)
 
 makedocs(;
     modules=[OSFclient],

@@ -1,14 +1,14 @@
 ```@meta
-CurrentModule = osfclient
+CurrentModule = OSFclient
 ```
 
 # osfclient
 
-Documentation for [osfclient](https://github.com/behinger/osfclient.jl).
+Documentation for [OSFclient](https://github.com/s-ccs/OSFclient.jl).
 
 ```@index
 ```
 
 ```@autodocs
-Modules = [osfclient]
+Modules = [OSFclient]
 ```

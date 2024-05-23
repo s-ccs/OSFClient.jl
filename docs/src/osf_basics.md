@@ -1,7 +1,9 @@
 # Basic tutorial of functionality
 
+
 Let's assume you have an OSF project
 ```@example main
+using OSFclient
 id = "hk9g4"
 ```
 
