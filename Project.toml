@@ -1,4 +1,4 @@
-name = "Osfclient"
+name = "OSFclient"
 uuid = "a791464d-1887-4b11-b414-a6c9c5aa4b03"
 authors = ["Benedikt V. Ehinger"]
 version = "1.0.0-DEV"
@@ -10,6 +10,7 @@ JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 
 [compat]
 JSON = "0.21"
+DataFrames = "1"
 julia = "1.6.7"
 
 [extras]

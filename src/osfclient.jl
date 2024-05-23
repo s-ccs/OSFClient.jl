@@ -1,4 +1,4 @@
-module Osfclient
+module OSFclient
 
 using DataFrames
 using HTTP
