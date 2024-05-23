@@ -1,14 +1,14 @@
-using osfclient
+using OSFclient
 using Documenter
 
-DocMeta.setdocmeta!(osfclient, :DocTestSetup, :(using osfclient); recursive=true)
+DocMeta.setdocmeta!(osfclient, :DocTestSetup, :(using OSFclient); recursive=true)
 
 makedocs(;
-    modules=[osfclient],
+    modules=[OSFclient],
     authors="Benedikt V. Ehinger",
-    sitename="osfclient.jl",
+    sitename="OSFclient.jl",
     format=Documenter.HTML(;
-        canonical="https://behinger.github.io/osfclient.jl",
+        canonical="https://s-ccs.github.io/OSFclient.jl",
         edit_link="main",
         assets=String[],
     ),
@@ -19,6 +19,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/behinger/osfclient.jl",
+    repo="github.com/s-ccs/OSFclient.jl",
     devbranch="main",
 )

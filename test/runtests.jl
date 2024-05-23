@@ -1,4 +1,4 @@
-using osfclient
+using OSFclient
 using Test
 
 @testset "osfclient.jl" begin
