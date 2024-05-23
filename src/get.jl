@@ -1,5 +1,6 @@
 """
     osf_api(id;kwargs...)
+using Base: isfieldatomic
     osf_api(url;kwargs...)
 helper to make requests against the osf api. 
 
@@ -35,4 +36,34 @@ end
 
 function download(id)
     return "https://osf.io/download/$id" |> HTTP.get |> x -> x.body
+end
+
+function download(save_folder, df::DataFrame)
+    download.(Ref(save_folder), eachrow(df))
+end
+
+
+"""
+    download(id)
+Download an OSF id, returns the body of HTTP.get
+
+    download(save_folder,df::DataFrameRow)
+    download(save_folder,df::DataFrame)
+
+Downloads all `df.id`'s to their respective `save_folder * df.folder`.
+
+## keywordargs
+`overwrite` (Bool=false) - flag to overwrite already existing files.
+
+
+
+"""
+function download(save_folder, df::DataFrames.DataFrameRow; overwrite=false)
+    target = save_folder * df.folder
+    if isfile(target) && !overwrite
+        @warn "$target already exists, put flag `overwrite=true` to re-download and overwrite"
+        return
+    end
+    mkpath(splitdir(target)[1])
+    write(target, download(df.id))
 end
