@@ -23,7 +23,6 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '1.6'
           - 'nightly'
         os:
           - ubuntu-latest
@@ -72,6 +71,6 @@ jobs:
         shell: julia --project=docs --color=yes {0}
         run: |
           using Documenter: DocMeta, doctest
-          using OSFclient
-          DocMeta.setdocmeta!(OSFclient, :DocTestSetup, :(using OSFclient); recursive=true)
-          doctest(OSFclient)
+          using OsfClient
+          DocMeta.setdocmeta!(OsfClient, :DocTestSetup, :(using OsfClient); recursive=true)
+          doctest(OsfClient)

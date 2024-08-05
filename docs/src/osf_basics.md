@@ -15,8 +15,8 @@ tree
 
 One can easily download a subset of files:
 ```@example main
-	tree = osf_download(tree;pattern=glob"*/*/*.txt")
-	tree
+	f = osf_download(tree;pattern=glob"*/*/*.txt")
+	f
 ```
 and/or save them:
 ```@example main
