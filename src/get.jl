@@ -47,7 +47,7 @@ end
     
 Download all files in a FileTree that (optionally) match a glob or regex `pattern`. If `save_path` is specified, saves the requested files to that folder.
 
-Returns a `FileTree` with the entries matching the pattern. 
+Returns a `FileTree` with the entries matching the pattern. Note that if `return_downloads` is false, the `children.values` will remain the `guid`/`id`'s of the osf and are not replaced with the content. This might change with a new version, where they might be replaced with a lazy loaded version linking to the `save_path` files.
 
 If `return_downloads` is true, updates the values of the tree-entries with the respective downloaded bytes.
 
