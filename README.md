@@ -6,6 +6,12 @@
 ## OSF Client 
 A (as-of-right-now read-only) API-client for the open science framework at [OSF.io](https://osf.io/).
 
+## Quickstart:
+```julia
+	tdir = "/path/to/save/to/
+  node_id = "hk9g4"
+	osf_download(osf_traverse(node_id),tdir;pattern=glob"*/*/*.txt") # optional pattern
+```
 ## Current Features
 - Iterate through a public OSF project (via `iterate`) and get `FileTrees.jl` tree
 - osf_download files via their `id` directly from OSF
