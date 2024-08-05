@@ -3,34 +3,33 @@
 
 Let's assume you have an OSF project
 ```@example main
-using OSFclient
+using OsfClient
 node_id = "hk9g4"
 ```
 
 Let's get an overview of the available files
 ```@example main
-str,df = OSFclient.traverse(node_id)
-str
+tree = OsfClient.osf_traverse(node_id)
+tree
 ```
 
-We also get a dataframe `df` with all the info to download files
-
+One can easily download a subset of files:
 ```@example main
-df
+	tree = osf_download(tree;pattern=glob"*/*/*.txt")
+	tree
+```
+and/or save them:
+```@example main
+	tdir = mktempdir()
+	osf_download(tree,tdir;pattern=glob"*/*/*.txt")
 ```
 
-And download one folder
-```@example main
-	subset_to_download = df[df.kind .== "file" .&& contains.(df.folder,"folderA2"),:]
-	d  =OSFclient.download(tempdir()*"/myfiles",subset_to_download)
-    read(tempdir()*"/myfiles/"*subset_to_download.folder[1]) |> String
-```
 
 You can also make a call to the api via:
 ```@example main
-OSFclient.osf_api(node_id)
+OsfClient.osf_api(node_id)
 ```
 
 ```@example main
-OSFclient.osf_api(node_id;field="files")
+OsfClient.osf_api(node_id;field="files")
 ```

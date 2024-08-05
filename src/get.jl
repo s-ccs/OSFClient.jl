@@ -1,22 +1,23 @@
 """
     osf_api(id;kwargs...)
-using Base: isfieldatomic
     osf_api(url;kwargs...)
-helper to make requests against the osf api. 
+
+Make requests against the osf api. 
 
 ##args
-id/url: osf-id, e.g. 3a7kt or url containing "https://api.osf.io/v2/"
+id/url: osf-id, e.g. 3a7kt or url containing "https://api.osf.io/v2/[...]". In the latter case, URL is not modified, in the former case, `type` and `field` need to be specified
 
 ## kwargs
-`field`: is put at `v2/type/id/*field*`
-`type`: is put at `v2/*type*`
+`field`: is put at `v2/*type*/id/*field*`
+`type`: is put at `v2/*type*` - defaults to `nodes`
 `parse`: if other than `json` returns the HTTP.get, else is converted to String and parsed with JSON.json
 
 if `parse == "json"` (default), received data is put to string and parsed as json
 
 """
 function osf_api(id_or_url; field="", type="nodes", kwargs...)
-    if length(id_or_url) < 22
+
+    if length(id_or_url) < 22 || id_or_url[1:22] != "https://api.osf.io/v2/"
         _osf_api("https://api.osf.io/v2/$type/$id_or_url/$field"; kwargs...)
     else
         _osf_api(id_or_url; kwargs...)
@@ -34,36 +35,82 @@ function _osf_api(url; parse="json")
 end
 
 
-function download(id)
+
+"""
+    osf_download(t::FileTree, save_path::String; kwargs...) 
+    
+    osf_download(t::FileTree;
+        save_path=nothing,
+        pattern::Union{GlobMatch,Regex}=glob"*",
+        return_downloads=isnothing(save_path))
+
+    
+Download all files in a FileTree that (optionally) match a glob or regex `pattern`. If `save_path` is specified, saves the requested files to that folder.
+
+Returns a `FileTree` with the entries matching the pattern. 
+
+If `return_downloads` is true, updates the values of the tree-entries with the respective downloaded bytes.
+
+Content needs to still assigned, e.g. `String(t.value)` to convert a `Vector{UInt8}` to a string.
+"""
+
+
+osf_download(t::FileTree, save_path::String; kwargs...) = osf_download(t; save_path, kwargs...)
+function osf_download(t::FileTree;
+    save_path=nothing,
+    pattern::Union{GlobMatch,Regex}=glob"*",
+    return_downloads=isnothing(save_path))
+
+    # add the save_path
+    if !isnothing(save_path)
+        t = FileTrees.rename(t, save_path)
+    end
+
+    # download the files
+    t = map(t[pattern], dirs=false) do f
+        dow = osf_download(f)
+        #@debug subtree
+        if !isnothing(save_path)
+            if !isdir(dirname(path(f)))
+                mkpath(dirname(path(f)))
+            end
+            write(path(f), dow)
+        end
+        if return_downloads
+            return FileTrees.setvalue(f, dow)
+        else
+            return FileTrees.setvalue(f, f.value)
+        end
+
+    end
+    return t
+end
+
+"""
+    osf_download(t::FileTrees.File)
+download a single file and return it
+"""
+osf_download(t::FileTrees.File) = osf_download(t.value)
+
+
+"""
+    osf_download(id::String)
+download a single osf-id and return it
+"""
+function osf_download(id::String)
     return "https://osf.io/download/$id" |> HTTP.get |> x -> x.body
 end
 
-function download(save_folder, df::DataFrame)
-    download.(Ref(save_folder), eachrow(df))
+"""
+    osf_download(t::FileTrees.File, save_path::String)
+download a single file, write it to the save_path and return it
+"""
+function osf_download(id::String, save_path::String)
+    out = "https://osf.io/download/$id" |> HTTP.get |> x -> x.body
+    write(save_path, out)
+    return out
 end
 
 
-"""
-    download(id)
-Download an OSF id, returns the body of HTTP.get
-
-    download(save_folder,df::DataFrameRow)
-    download(save_folder,df::DataFrame)
-
-Downloads all `df.id`'s to their respective `save_folder * df.folder`.
-
-## keywordargs
-`overwrite` (Bool=false) - flag to overwrite already existing files.
 
 
-
-"""
-function download(save_folder, df::DataFrames.DataFrameRow; overwrite=false)
-    target = save_folder * df.folder
-    if isfile(target) && !overwrite
-        @warn "$target already exists, put flag `overwrite=true` to re-download and overwrite"
-        return
-    end
-    mkpath(splitdir(target)[1])
-    write(target, download(df.id))
-end
