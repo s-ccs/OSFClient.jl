@@ -1,7 +1,7 @@
-# OsfClient
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://s-ccs.github.io/OsfClient.jl/dev/)
-[![Build Status](https://github.com/s-ccs/OsfClient.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/s-ccs/OsfClient.jl/actions/workflows/CI.yml?query=branch%3Amain)
-[![Coverage](https://codecov.io/gh/s-ccs/OsfClient.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/s-ccs/OsfClient.jl)
+# OSFClient
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://s-ccs.github.io/OSFClient.jl/dev/)
+[![Build Status](https://github.com/s-ccs/OSFClient.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/s-ccs/OSFClient.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Coverage](https://codecov.io/gh/s-ccs/OSFClient.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/s-ccs/OSFClient.jl)
 
 ## OSF Client 
 A (as-of-right-now read-only) API-client for the open science framework at [OSF.io](https://osf.io/).
@@ -11,7 +11,7 @@ A (as-of-right-now read-only) API-client for the open science framework at [OSF.
 - osf_download files via their `id` directly from OSF
 
 ## Missing features
-This is really a barebone OsfClient, many things are missing:
+This is really a barebone OSFClient, many things are missing:
 - authentification
 - upload files
 - create or modify metadata/projects

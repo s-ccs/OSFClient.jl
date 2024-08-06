@@ -1,14 +1,14 @@
-using OsfClient
+using OSFClient
 using Documenter
 
-DocMeta.setdocmeta!(OsfClient, :DocTestSetup, :(using OsfClient); recursive=true)
+DocMeta.setdocmeta!(OSFClient, :DocTestSetup, :(using OSFClient); recursive=true)
 
 makedocs(;
-    modules=[OsfClient],
+    modules=[OSFClient],
     authors="Benedikt V. Ehinger",
-    sitename="OsfClient.jl",
+    sitename="OSFClient.jl",
     format=Documenter.HTML(;
-        canonical="https://s-ccs.github.io/OsfClient.jl",
+        canonical="https://s-ccs.github.io/OSFClient.jl",
         edit_link="main",
         assets=String[],
     ),
@@ -19,6 +19,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/s-ccs/OsfClient.jl",
+    repo="github.com/s-ccs/OSFClient.jl",
     devbranch="main",
 )

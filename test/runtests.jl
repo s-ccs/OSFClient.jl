@@ -1,8 +1,8 @@
-using OsfClient
+using OSFClient
 using Test
 
 node_id = "hk9g4"
-@testset "OsfClient.jl" begin
+@testset "OSFClient.jl" begin
 
     @testset "osf_api" begin
         o = osf_api(node_id)

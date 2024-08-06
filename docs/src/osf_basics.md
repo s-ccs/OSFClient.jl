@@ -3,13 +3,13 @@
 
 Let's assume you have an OSF project
 ```@example main
-using OsfClient
+using OSFClient
 node_id = "hk9g4"
 ```
 
 Let's get an overview of the available files
 ```@example main
-tree = OsfClient.osf_traverse(node_id)
+tree = OSFClient.osf_traverse(node_id)
 tree
 ```
 
@@ -27,9 +27,9 @@ and/or save them:
 
 You can also make a call to the api via:
 ```@example main
-OsfClient.osf_api(node_id)
+OSFClient.osf_api(node_id)
 ```
 
 ```@example main
-OsfClient.osf_api(node_id;field="files")
+OSFClient.osf_api(node_id;field="files")
 ```

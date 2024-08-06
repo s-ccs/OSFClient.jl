@@ -1,14 +1,14 @@
 ```@meta
-CurrentModule = OsfClient
+CurrentModule = OSFClient
 ```
 
-# OsfClient
+# OSFClient
 
-Documentation for [OsfClient](https://github.com/s-ccs/OsfClient.jl).
+Documentation for [OSFClient](https://github.com/s-ccs/OSFClient.jl).
 
 ```@index
 ```
 
 ```@autodocs
-Modules = [OsfClient]
+Modules = [OSFClient]
 ```

@@ -1,4 +1,4 @@
-module OsfClient
+module OSFClient
 
 using HTTP
 using JSON
