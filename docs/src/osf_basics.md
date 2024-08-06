@@ -9,7 +9,7 @@ node_id = "hk9g4"
 
 Let's get an overview of the available files
 ```@example main
-tree = OSFClient.osf_traverse(node_id)
+tree = osf_traverse(node_id)
 tree
 ```
 
@@ -27,9 +27,9 @@ and/or save them:
 
 You can also make a call to the api via:
 ```@example main
-OSFClient.osf_api(node_id)
+osf_api(node_id)
 ```
 
 ```@example main
-OSFClient.osf_api(node_id;field="files")
+osf_api(node_id;field="files")
 ```
