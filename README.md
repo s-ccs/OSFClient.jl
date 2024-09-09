@@ -1,3 +1,7 @@
+# Deprecated
+> [!CAUTION]
+> I only lately got to known the much older and more versatile: [OpenScienceFramework.jl](https://github.com/JuliaAPlavin/OpenScienceFramework.jl) - this client here is deprecated and functionality will be moved to the other package.
+
 # OSFClient
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://s-ccs.github.io/OSFClient.jl/dev/)
 [![Build Status](https://github.com/s-ccs/OSFClient.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/s-ccs/OSFClient.jl/actions/workflows/CI.yml?query=branch%3Amain)
